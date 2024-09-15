@@ -1,0 +1,176 @@
+\documentclass[12pt]{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{mathptmx} %% For TImes New Roman Font
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{authblk}  %% For author affiliation
+
+%% SOME PREVIOUS YEAR TITLES
+% Systematic design of Bandgap Voltage Reference Circuits
+% Neuromorphic Computing: Technologies, Architectures, Systems, and Compilers
+% Hardware Design for Machine Learning [4 hrs]
+%  RISC-V : The Open Era of Computing
+%  Functional Verification of Multichip Reference Design compute subsystem for Hyperscalar SoCs
+% Quantum Computing: Algorithms, Systems and Design Automation
+% Brain Inspired Computing: The Extraordinary Voyages from Known to Unknown Worlds
+% SoC Architectures for accelerating AI Computing
+% Event-driven low-compute bioinspired processing for Edge Audio
+% AI for Quantum, quantum for AI
+% On-Chip Memories - Challenges, Opportunities, and Recent Advances
+% HBM System and Architecture for AI applications
+% Beyond 5G & 6G Wireless Communication
+% Building a multi protocol wireless IoT Device
+% AI in Security – A Potential to Make and Break a Secure Connected World
+% Logic Design of a RISC-V Microprocessor
+\setlength{\headheight}{14.49998pt}
+\title{Machine Learning in Analog IC Design Automation}
+\author[1]{Saroj Rout}
+\author[2]{Arun Ravindran}
+\affil[1]{EE Dept., Silicon University, India}
+\affil[2]{ECE Dept., UNC Charlotte, USA}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[RO]{Tutorial Proposal for VLSID 2025}
+\maketitle
+
+% Share an abstract that allows conference attendees to quickly and accurately understand the subject and intent of the tutorial. The abstract should not exceed 1000 words.
+\begin{abstract}
+
+Generative AI has already made a significant impact on software, and its use in digital hardware design is nearing mainstream adoption. However, its application in analog circuit design remains in its early stages. In this tutorial, we will start with a simple yet widely used analog circuit, a low-power operational transconductance amplifier (OTA) to highlight the complexities involved in this area.
+Next, we will explore key research and recent advancements in applying Machine Learning (ML) to analog circuit design and automation. We will also demonstrate the use of the well-known Berkeley Analog Generator (BAG), a popular tool for analog circuit generation.
+Finally, we will introduce AiEDA, a cutting-edge agentic AI methodology designed to automate analog circuit design. This approach uses large language models (LLMs), agentic AI techniques, and open-source EDA tools to create Large Action Models (LAMs), which aim to improve efficiency and accuracy in analog circuit design processes.
+\end{abstract}
+
+
+%Area of the Tutorial: List out the broad domain (s) the tutorial is covering
+% Keywords: Provide 5 keywords
+\begin{description}
+    \item[Topic]: AI for Electronic Design Automation 
+    \item[Area of the Tutorial]:  Analog IC Design, Generative Artificial Intelligence (GenAI), Machine Learning (ML), Integrated Circuit (IC) Design, Electronic Design Automation (EDA).
+    \item[Keywords]: Analog IC Design, GenAI, EDA, Machine Learning (ML). 
+\end{description}
+
+
+%%%--- TARGET AUDIENCE
+%% Enlist the categories of the audience that will get benefit from this tutorial
+\section*{Target Audience}
+
+\begin{itemize}
+    \item Analog IC designers interested in using GenAI for circuit and layout synthesis.
+    \item EDA tool developers and researchers working in the area of Analog synthesis and GenAI.
+    \item System-on-Chip (SoC) architects interested in integrating GenAI in the design flow.
+\end{itemize}
+
+%%%--- LEARNING OBJECTIVE 
+%%  Explain why the proposed topic is important to the VLSI Design 2025 attendees and what participants will learn by attending the tutorial. Provide topics outlining the contents of the tutorial and the learning outcomes.
+\section*{Learning Objective}
+VLSID International Conference is one of the foremost global forum for presentation of advances in VLSI and Embedded Systems. The conference is attended by over 2000 engineers, students \& faculty, industry, academia, and researchers from around the world. This year's theme of VLSID is "Silicon meets Artificial Intelligence (AI)" which is an apt focus given AI has permeated every facets of life including every domain of VLSI as well.
+
+When it comes to generative AI (GenAI), it's influence on software is well known now and digital hardware synthesis using GenAI is on the verge of becoming mainstream.
+But when it comes to analog design automation using GenAI, it is still in its infancy. 
+
+\subsubsection*{Outline of the Tutorial}
+In this tutorial, we will start with a simple and typical analog circuit—a low-power OTA—to demonstrate the complexity of the problem.
+Subsequently, we will explore the key research and innovations in analog circuit design and automation utilizing Machine Learning (ML).
+Next, we will demonstrate the use of a widely-utilized Berkeley Analog Generator (BAG) for analog circuit design.
+Finally, we will introduce AiEDA, a new agentic AI flow methodology that automates analog circuit design, utilizing large language models (LLM) combined with Retrieval Augmented Generation (RAG) technique.
+
+\subsubsection*{Learning Outcomes}
+A semiconductor student, researcher, or professional unfamiliar with this specific topic will gain a general understanding of the issue and the latest advances in research and development. A designer of analog ICs seeking to incorporate ML into the design process will be introduced to two tools and methodologies to achieve this. A developer or researcher in EDA will gain an understanding of the present status of tools and methods for creating analog design automation tools using ML.
+
+%%%--- Prerequisite knowledge of the audience:
+%%-- It is expected that the tutorial may be a fine mix of basics and well as advanced concepts related to the topic chosen. The audience is expected to consist of UG/PG students as well as from participants from Industry.
+\section*{Prerequisite knowledge of the audience}
+This tutorial will cover the topics assuming minimum knowledge of the topic. Having said that, some experience in analog circuit design and a general knowledge how AI models work will definitely help the audience.
+
+\pagebreak
+%%%-- LEAD SPEAKER
+%% Maximum one-page professional biographies of the lead tutorial speakers that highlight qualification, experience, and contribution to the proposed subject area of the tutorial.
+\section*{Lead Speaker}
+\subsection*{Saroj Rout, Ph.D., Senior Member IEEE}
+\begin{description}
+    \item[Biography] Dr. Saroj Rout received the Ph.D. degree in Electrical Engineering from Tufts University, Massachusetts, USA, in 2016, where he worked on terahertz metamaterials for his doctoral dissertation. He received his B.Eng. in Instrumentation and M.Eng. in Microelectronics from Birla Institute of Technology and Science (BITS), Pilani, India, in 1996 and 1998, respectively.
+    He is an Additional Professor of Electronics Engineering Dept. at Silicon University, India. He is the co-founder of Boston Microtechnology, a semiconductor startup in the Greater Boston area developing power management ICs. He has more than 25 years of experience in analog IC design with 16 complete SoC experience. Two of the products, DAA and ProSLIC, have sold more than 2~billion units. He holds 8 patents in the area of IC design and metamaterials. He is a published researcher with more than 450 engineering citations and the author of "Active Metamaterials", a Springer-Nature publication for applied physicists. He was the Principal Investigator, SBIR Phase-I, a National Science Foundation (NSF-USA), grant. He is a Senior Member of IEEE.
+
+    \item[Analog IP/SoC Experience] Direct access (DA) IPs for a HBM SoC in 14nm CMOS. $\bullet$ Power management IPs for a Spiking Neural Network (SNN) SoC in 28nm CMOS. $\bullet$ A transformer-less AC-DC converter in the 350V SOI CMOS process, $\bullet$ A SPI-accessible SRAM in 0.6$\mu m$ CMOS for low-power IoT applications. $\bullet$ A Power and Area Efficient CMOS Bandgap Voltage Reference in 0.6$\mu m$ CMOS. $\bullet$ Analog Front-End (AFE) for a 3-axis MEMS gyroscope SoC in 0.13 $\mu m$ CMOS. $\bullet$ A focal-plane array for 320 GHz metamaterial based imager in 0.18 $\mu m$ CMOS. $\bullet$ A 450 GHz metamaterial modulator using HEMTs in 0.5$\mu m$ GaAs technology. $\bullet$ VGA-based Limiter for GSM/DCS EDGE PA SoC in $0.13~\mu m$ CMOS. $\bullet$ Baseband IPs for FM Radio Tuner SoC in $0.13\mu m$ CMOS. $\bullet$ Verilog-AMS modeling for a baseband IPs in a GSM SoC. $\bullet$ Analog IPs for Direct Access Arrangement(DAA): Transformer-less Modem SoC in $0.25\mu m$ CMOS + external bipolars. $\bullet$ LO IPs for a Digital Satelitte Radio Tuner SoC in $0.25\mu m$ CMOS. $\bullet$ Analog Front-End (AFE) IPs for a ProSLIC SoC, a complete analog telephone interface in $0.45\mu m$ CMOS + external bipolars.
+
+    \item[LinkedIn] \href{https://linkedin.com/in/sroutk}{\texttt{linkedin.com/in/sroutk}}
+
+    \item[Personal Website]  \href{https://www.eecs.tufts.edu/~saroj}{\texttt{https://www.eecs.tufts.edu/~saroj}}
+
+\end{description}
+
+\pagebreak
+%%%--- List of Speakers: This is in addition to the lead speaker. Some tutorials may feature different speakers that should be advertised, but it is not necessary, nor a requirement. For example, a 90 minutes tutorial could have up to two speakers. If you plan to have multiple speakers, please provide their names, affiliations and short biography and clearly indicate the parts of the tutorial that they will cover.
+\section*{Co-Speaker}
+\subsection*{Arun Ravindran, Ph.D., Associate Professor, University of North Carolina at Charlotte, USA}
+
+\begin{description}
+
+    \item[Biography] Dr. Arun Ravindran received his Ph.D. in Electrical Engineering from The Ohio State University, Columbus, OH, USA, in 2003. He received his M.Eng. in Microlectronics and B.Eng. in Instrumentation from Birla Institute of Technology, Pilani in 1996 and 1997 respectively. He is currently an Associate Professor of Electrical and Communication Engineering Department at the University of North Carolina at Charlotte, USA. 
+    Dr. Ravindran has over 20 years of experience in research and teaching in various domains, such as analog mixed signal design, high-performance computing, edge computing, deep learning, and generative AI. With more than 65 peer-reviewed journal and conference publications, his work has received funding from both the US National Science Foundation (NSF) and industry. Currently, his research and consulting interests focus on the foundational techniques and applications of generative AI.
+
+    \item[AI Experience] (2018 - 2023): Designed and implemented collaborators an edge-based distributed custom deep learning human-action detection and alerting system in the \$2.2 million NSF project ``SCC: Building Safe and Secure Communities through Real-Time Edge Video Analytics". $\bullet$ (2022 - 2024) Collaborated in designing and implementing a compute-efficient, edge-based deep learning vehicle tracking algorithm and its simulation framework for dense urban road networks. $\bullet$ (2023 - present) Currently implementing generative AI-based custom support chatbots for clients across various industries, including software, legal, and banking. $\bullet$ (2023 - present) Leading multiple research projects focused on fundamental generative AI decision-making, as well as its applications in VLSI design and cybersecurity.
+
+    \item[LinkedIn] \href{https://www.linkedin.com/in/arun-a-ravindran/}{\texttt{linkedin.com/in/arun-a-ravindran}}
+
+    \item[Personal Website]  \href{https://webpages.charlotte.edu/aravindr/}{\texttt{https://webpages.charlotte.edu/aravindr}}
+
+
+
+\end{description}
+
+\textit{Please note that the details regarding each author's contribution to the tutorial are outlined in the section "Basic Structure of the Tutorial" below.} 
+
+\pagebreak
+%%--Basic Structure of the Tutorial: Outline the time allocated for particular sub-topic(s).
+\section*{Basic Structure of the Tutorial}
+
+\subsubsection*{Speaker Legend}
+\begin{description}
+    \item[SR] Saroj Rout
+    \item[AR] Arun Ravindran
+\end{description}
+
+\begin{description}
+    \item[Introduction] A brief review of analog synthesis in general. \textbf{[SR][5min]}
+    
+    \item[Problem with analog synthesis]  In order to highlight why analog synthesis remains a challenging problem and hasn't yet become mainstream, we will utilize a straightforward and widely used analog circuit—a low-power OTA—designed using the $g_m/I_D$ methodology. \textbf{[SR][10min]}
+
+    \item[A review of analog synthesis using Machine Learning (ML) techniques] We examine the impact of ML on analog EDA over the past ten years. Our focus will be on three key areas:
+    \begin{description}
+        \item[Neural Networks (NN)] of different complexities using both supervised and reinforcement learning techniques. \textbf{[AR][10min]}
+        \item[Global optimization] strategies assisted by heuristic and stochastic methods include simulated annealing, genetic algorithms, Gaussian processes, Bayesian techniques, and particle swarm optimization. Although these are technically not ML techniques, they are potent optimization methods that can be incorporated within an ML framework. \textbf{[AR][10min] }
+        \item[Hybrid] techniques that integrate global optimization with neural network methodologies to enhance results compared to pure optimization techniques. \textbf{[AR][10min]}
+    \end{description}
+
+    \item[Berkeley Analog Generator (BAG)] A well-known Python-based Analog and Mixed-Signal (AMS) circuit and layout generator developed by the University of California, Berkeley. Discuss the structure of BAG, now in it's 3rd version BAG3.0 and it's integration in Cadence Virtuoso front-end. Demonstrate the tool using the low-power OTA analog design. \textbf{[SR][20min]}
+
+    \item[AiEDA] our new agentic AI based design framework for hardware synthesis will be introduced. 
+    \begin{description}
+        \item[Introduction to Agentic AI Flow] General architecture of the flow will be introduced and the power LLM when combined with Retrieval Augmented Generation (RAG) technique will be demonstrated. \textbf{[AR][10min]}
+
+        \item[Case Study] we will demonstrate the generation and optimization of a low-power OTA—designed using the $g_m/I_D$ methodology. \textbf{[SR][10min]}
+    \end{description}
+
+    \item[Conclusion] Concluding remarks along with future direction for AI-assisted analog circuit generation. \textbf{[SR][5min]}
+    
+\end{description}
+
+%\bibliographystyle{ieeetr}
+%\bibliography{reference}
+
+\end{document}
